@@ -1,9 +1,13 @@
 * {
-  /* reset */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* make sure styles are dynamic */
 /* 1+ media query breakpoint */
+/* make sure your styles are dynamic
+add media queries for different screen sizes (one breakpoint) */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
