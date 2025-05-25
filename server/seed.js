@@ -17,9 +17,13 @@ async function doSeeding() {
             name VARCHAR(255), relation VARCHAR(255), content TEXT)`,
     `INSERT INTO test VALUES ('DUMMY')`,
     `INSERT INTO comments (name,relation,content)
-            VALUES ('Santa', 'myob', 'Merry Xmas!')`,
+            VALUES ('Santa', 'My elves found you', 'Merry Xmas!')`,
     `INSERT INTO comments (name,relation,content)
-            VALUES ('Satan', 'myob', 'Grotty Xmas!')`,
+            VALUES ('Satan', 'I already live here', 'Grotty Xmas!')`,
+    `INSERT INTO comments (name,relation,content)
+            VALUES ('Bart Simpson', 'I sent Milhouse ahead', 'Eat my shorts!')`,
+    `INSERT INTO comments (name,relation,content)
+            VALUES ('Cicero', 'Lorem Ipsum, my dear fellow', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat nulla ex. Aenean fringilla egestas finibus. Morbi consectetur ligula ut tellus tempor accumsan. Pellentesque id metus faucibus, porttitor felis id, dignissim nisi. Maecenas tempus laoreet ultrices. Vivamus non ante ut tortor finibus bibendum nec quis dolor. Donec faucibus eros sit.')`,
   ])
     await db.query(q);
   console.log("Seed data created successfully!");
