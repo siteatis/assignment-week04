@@ -8,6 +8,9 @@
 //http://localhost:8080/staff --> dev
 //https://deployedwebsiteurl.onrender.com/staff --> production
 
+//import dotenv from "dotenv";
+//dotenv.config();
+
 const log = console.log;
 const test = document.getElementById("test");
 test.addEventListener("submit", handleSubmitTest);
@@ -16,7 +19,7 @@ async function handleSubmitTest(ev) {
   ev.preventDefault();
   const testData = new FormData(test);
   const msg = testData.get("testMessage"); // o = Object.fromEntries(testData);
-  let rsp = await fetch("http://localhost:8080/postTest", {
+  let rsp = await fetch(import.meta.env.VITE_SERVER_URL + "postTest", {
     method: "POST", // This is where we set the POST HTTP verb
     headers: {
       "Content-Type": "application/json", // This tells the server we're sending stringified JSON data
@@ -26,7 +29,7 @@ async function handleSubmitTest(ev) {
   log(rsp.status); // Expected: 200
   // No neeed to await the response body, though I do worry as the server returns
   // synchronously then we could be doing the GET before the data arrives in the DB
-  rsp = await fetch("http://localhost:8080/getTest");
+  rsp = await fetch(import.meta.env.VITE_SERVER_URL + "getTest");
   const rspData = await rsp.json();
-  log(rspData.testmessage); // Expected: your own message returned to you
+  log(rspData.testmessage); // Expected: Your first message since last DB reseed returned to you
 }
